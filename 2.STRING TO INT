@@ -1,0 +1,7 @@
+ {
+    public static void main(String[] args) {
+        String strValue = "12345";
+        Integer intValue = Integer.valueOf(strValue);
+        System.out.println("Converted integer value: " + intValue);
+    }
+}
