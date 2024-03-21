@@ -1,0 +1,59 @@
+public class IllegalArgumentExceptionDemo {
+    public static void main(String[] args) {
+        // Negative Argument in the method requiring non-negative values
+        try {
+            int negativeValue = -10;
+            validatePositiveValue(negativeValue);
+        } catch (IllegalArgumentException e) {
+            System.out.println("IllegalArgumentException: " + e.getMessage());
+        }
+
+        // Invalid Enum Constant Passed to a Method
+        try {
+            String color = "Pink";
+            validateColor(color);
+        } catch (IllegalArgumentException e) {
+            System.out.println("IllegalArgumentException: " + e.getMessage());
+        }
+
+        // Setting an Invalid Range for a Method Parameter
+        try {
+            int age = 150;
+            validateAge(age);
+        } catch (IllegalArgumentException e) {
+            System.out.println("IllegalArgumentException: " + e.getMessage());
+        }
+
+        // Empty or Null String Argument in a Method Requiring Non-Empty String
+        try {
+            String name = null;
+            validateName(name);
+        } catch (IllegalArgumentException e) {
+            System.out.println("IllegalArgumentException: " + e.getMessage());
+        }
+    }
+
+    public static void validatePositiveValue(int value) {
+        if (value < 0) {
+            throw new IllegalArgumentException("Value must be non-negative");
+        }
+    }
+
+    public static void validateColor(String color) {
+        if (!color.equalsIgnoreCase("Red") && !color.equalsIgnoreCase("Blue") && !color.equalsIgnoreCase("Green")) {
+            throw new IllegalArgumentException("Invalid color");
+        }
+    }
+
+    public static void validateAge(int age) {
+        if (age < 0 || age > 120) {
+            throw new IllegalArgumentException("Invalid age range");
+        }
+    }
+
+    public static void validateName(String name) {
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be null or empty");
+        }
+    }
+}
