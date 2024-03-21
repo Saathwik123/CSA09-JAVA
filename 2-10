@@ -1,0 +1,36 @@
+a) final variable
+public class FinalVariableExample {
+    public final int MAX_SIZE = 100;
+
+    public static void main(String[] args) {
+    }
+}
+Output:
+(No output)
+b) final method
+public class FinalMethodExample {
+    public final void printMessage() {
+        System.out.println("Hello, World!");
+    }
+
+    public static void main(String[] args) {
+        FinalMethodExample example = new FinalMethodExample();
+        example.printMessage();
+
+    }
+}
+Output:
+Hello, World!
+c) final classes
+public final class FinalClassExample {
+    public void printMessage() {
+        System.out.println("Hello, World!");
+    }
+
+    public static void main(String[] args) {
+        FinalClassExample example = new FinalClassExample();
+        example.printMessage();
+    }
+}
+Output:
+Hello, World!
