@@ -1,0 +1,16 @@
+public class NonIntegerException extends Exception {
+    public NonIntegerException(String message) {
+        super(message);
+    }
+
+    public static void main(String[] args) {
+        try {
+            String userInput = "abc";
+            if (!userInput.matches("\\d+")) {
+                throw new NonIntegerException("Non-integer values are not allowed");
+            }
+        } catch (NonIntegerException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
