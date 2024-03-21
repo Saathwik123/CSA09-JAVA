@@ -1,0 +1,58 @@
+public interface Tree {
+    int fruits(int apple, int orange);
+    int leaves(int green, int yellow, int red);
+    double flowers(double white, double pink, double red, double yellow);
+}
+
+// Class extending the Tree interface
+public class Branch1 implements Tree {
+    @Override
+    public int fruits(int apple, int orange) {
+        return apple + orange;
+    }
+
+    @Override
+    public int leaves(int green, int yellow, int red) {
+        return green + yellow + red;
+    }
+
+    @Override
+    public double flowers(double white, double pink, double red, double yellow) {
+        return white + pink + red + yellow;
+    }
+}
+
+// Class extending the Tree interface
+public class Branch2 implements Tree {
+    @Override
+    public int fruits(int apple, int orange) {
+        return apple * 2 + orange * 3;
+    }
+
+    @Override
+    public int leaves(int green, int yellow, int red) {
+        return green * 2 + yellow * 3 + red * 4;
+    }
+
+    @Override
+    public double flowers(double white, double pink, double red, double yellow) {
+        return white * 0.5 + pink * 0.75 + red * 1 + yellow * 1.5;
+    }
+}
+
+// Example usage
+public class Main {
+    public static void main(String[] args) {
+        Tree branch1 = new Branch1();
+        System.out.println("Branch1:");
+        System.out.println("Fruits: " + branch1.fruits(2, 3));
+        System.out.println("Leaves: " + branch1.leaves(2, 3, 4));
+        System.out.println("Flowers: " + branch1.flowers(2, 3, 4, 5));
+
+        Tree branch2 = new Branch2();
+        System.out.println("Branch2:");
+        System.out.println("Fruits: " + branch2.fruits(2, 3));
+        System.out.println("Leaves: " + branch2.leaves(2, 3, 4));
+        System.out.println("Flowers: " + branch2.flowers(2, 3, 4, 5));
+    }
+}
