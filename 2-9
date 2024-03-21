@@ -1,0 +1,55 @@
+a)
+public class Main {
+    public static int count = 0;
+
+    public Main() {
+        count++;
+    }
+
+    public static void main(String[] args) {
+        Main obj1 = new Main();
+        Main obj2 = new Main();
+        Main obj3 = new Main();
+        System.out.println("Number of objects created: " + Main.count);
+    }
+}
+Output:
+Number of objects created: 3
+b)
+public class Main {
+    public static int sum(int a, int b) {
+        return a + b;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Sum of 2 numbers: " + Main.sum(2, 3));
+    }
+}
+Output:
+Sum of 2 numbers: 5
+c)
+public class Main {
+    static {
+        System.out.println("Static block executed");
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Main method executed");
+    }
+}
+Output:
+Static block executed
+Main method executed
+d)
+public class Main {
+    public static class NestedClass {
+        public void printMessage() {
+            System.out.println("Hello, World!");
+        }
+    }
+
+    public static void main(String[] args) {
+        Main.NestedClass obj = new Main.NestedClass();
+        obj.printMessage();
+    }
+}
