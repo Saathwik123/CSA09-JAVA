@@ -1,0 +1,18 @@
+public class Shape {
+    public void area(int side) {
+        System.out.println("Area of a square: " + (side * side));
+    }
+}
+public class Rectangle extends Shape {
+    @Override
+    public void area(int length, int width) {
+        super.area(length); // Call the base class method with the length as the side of a square
+        System.out.println("Area of a rectangle: " + (length * width));
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Rectangle rectangle = new Rectangle();
+        rectangle.area(5, 10); // Call the derived class method with the length and width of a rectangle
+    }
+}
