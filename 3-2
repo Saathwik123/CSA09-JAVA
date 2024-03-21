@@ -1,0 +1,82 @@
+public class ArrayExceptionsDemo {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3};
+
+        // Accessing an array element outside its bound
+        try {
+            int element = array[3];
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("ArrayIndexOutOfBoundsException: " + e.getMessage());
+        }
+
+        // Iterating beyond the array length
+        try {
+            for (int i = 0; i <= array.length; i++) {
+                System.out.println(array[i]);
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("ArrayIndexOutOfBoundsException: " + e.getMessage());
+        }
+
+        // Nested array and incorrect index
+        try {
+            int[][] nestedArray = {{1, 2}, {3, 4}};
+            int element = nestedArray[1][2];
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("ArrayIndexOutOfBoundsException: " + e.getMessage());
+        }
+
+        // Passing incorrect array to the method
+        try {
+            int[] incorrectArray = null;
+            printArrayLength(incorrectArray);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("ArrayIndexOutOfBoundsException: " + e.getMessage());
+        }
+    }
+
+    public static void printArrayLength(int[] arr) {
+        System.out.println("Array length: " + arr.length);
+    }
+}
+3.Write the java program in Number format Exception for the following 
+a) Parsing a Non-Numeric String. 
+b) Reading User Input Without Validation. 
+c) Formatting Issues in “Decimal Format”. 
+d) Incorrectly using localized decimal separators 
+
+public class NumberFormatExceptionDemo {
+    public static void main(String[] args) {
+        // Parsing a Non-Numeric String
+        try {
+            String nonNumeric = "abc";
+            int number = Integer.parseInt(nonNumeric);
+        } catch (NumberFormatException e) {
+            System.out.println("NumberFormatException: " + e.getMessage());
+        }
+
+        // Reading User Input Without Validation
+        try {
+            String userInput = "123xyz";
+            int number = Integer.parseInt(userInput);
+        } catch (NumberFormatException e) {
+            System.out.println("NumberFormatException: " + e.getMessage());
+        }
+
+        // Formatting Issues in "Decimal Format"
+        try {
+            String formattedNumber = "12,345.67";
+            double number = Double.parseDouble(formattedNumber);
+        } catch (NumberFormatException e) {
+            System.out.println("NumberFormatException: " + e.getMessage());
+        }
+
+        // Incorrectly using localized decimal separators
+        try {
+            String localizedNumber = "12.345,67";
+            double number = Double.parseDouble(localizedNumber.replace(",", ""));
+        } catch (NumberFormatException e) {
+            System.out.println("NumberFormatException: " + e.getMessage());
+        }
+    }
+}
