@@ -1,0 +1,99 @@
+// Abstract class with 2 abstract methods and 3 concrete methods
+public abstract class AbstractStatistics {
+    
+    // Abstract method for calculating the total
+    public abstract double total();
+    
+    // Abstract method for calculating the average
+    public abstract double average();
+    
+    // Concrete method for calculating the mean
+    public double mean() {
+        double total = this.total();
+        double count = this.count();
+        return total / count;
+    }
+    
+    // Concrete method for calculating the mode
+    public int mode() {
+        // Assumes that the data is stored in an array called data
+        int[] counts = new int[100]; // assuming the data values are between 0 and 99
+        for (int i = 0; i < data.length; i++) {
+            counts[data[i]]++;
+        }
+        int modeValue = 0;
+        int maxCount = 0;
+        for (int i = 0; i < counts.length; i++) {
+            if (counts[i] > maxCount) {
+                maxCount = counts[i];
+                modeValue = i;
+            }
+        }
+        return modeValue;
+    }
+    
+    // Concrete method for calculating the median
+    public double median() {
+        double[] sortedData = this.sortedData();
+        int n = sortedData.length;
+        if (n % 2 == 0) {
+            return (sortedData[n/2 - 1] + sortedData[n/2])/2;
+        } else {
+            return sortedData[n/2];
+        }
+    }
+    
+    // Abstract method for getting the sorted data
+    public abstract double[] sortedData();
+    
+    // Abstract method for getting the count of data points
+    public abstract int count();
+    
+}
+
+// Concrete class that extends the abstract class
+public class ConcreteStatistics extends AbstractStatistics {
+    
+    private int[] data;public ConcreteStatistics(int[] data) {
+        this.data = data;
+    }
+    
+    // Implementation of the abstract method for calculating the total
+    @Override
+    public double total() {
+        double total = 0;
+        for (int i = 0; i < data.length; i++) {
+            total += data[i];
+        }
+        return total;
+    }
+    
+    // Implementation of the abstract method for calculating the average
+    @Override
+    public double average() {
+        return this.total() / this.count();
+    }
+    
+    // Implementation of the abstract method for getting the sorted data
+    @Override
+    public double[] sortedData() {
+        double[] sortedData = new double[data.length];
+        System.arraycopy(data, 0, sortedData, 0, data.length);
+        Arrays.sort(sortedData);
+        return sortedData;
+    }
+    
+    // Implementation of the abstract method for getting the count of data points
+    @Override
+    public int count() {
+        return data.length;
+    }
+    
+}
+int[] data = {1, 2, 3, 4, 5};
+ConcreteStatistics stats = new ConcreteStatistics(data);
+System.out.println("Total: " + stats.total());
+System.out.println("Average: " + stats.average());
+System.out.println("Mean: " + stats.mean());
+System.out.println("Mode: " + stats.mode());
+System.out.println("Median: " + stats.median());
