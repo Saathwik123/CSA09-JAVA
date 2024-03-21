@@ -1,0 +1,35 @@
+public class NumberFormatExceptionDemo {
+    public static void main(String[] args) {
+        // Parsing a Non-Numeric String
+        try {
+            String nonNumeric = "abc";
+            int number = Integer.parseInt(nonNumeric);
+        } catch (NumberFormatException e) {
+            System.out.println("NumberFormatException: " + e.getMessage());
+        }
+
+        // Reading User Input Without Validation
+        try {
+            String userInput = "123xyz";
+            int number = Integer.parseInt(userInput);
+        } catch (NumberFormatException e) {
+            System.out.println("NumberFormatException: " + e.getMessage());
+        }
+
+        // Formatting Issues in "Decimal Format"
+        try {
+            String formattedNumber = "12,345.67";
+            double number = Double.parseDouble(formattedNumber);
+        } catch (NumberFormatException e) {
+            System.out.println("NumberFormatException: " + e.getMessage());
+        }
+
+        // Incorrectly using localized decimal separators
+        try {
+            String localizedNumber = "12.345,67";
+            double number = Double.parseDouble(localizedNumber.replace(",", ""));
+        } catch (NumberFormatException e) {
+            System.out.println("NumberFormatException: " + e.getMessage());
+        }
+    }
+}
