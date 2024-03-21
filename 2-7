@@ -1,0 +1,44 @@
+public interface Summable {
+    double sum(double[] numbers);
+}
+
+// Interface with 1 method for calculating the average
+public interface Averageable {
+    double avg(double[] numbers);
+}
+
+public interface Percentageable {
+    double percentage(double part, double whole);
+}
+
+public class BasicStatistics implements Summable, Averageable, Percentageable {
+    @Override
+    public double sum(double[] numbers) {
+        double sum = 0;
+        for (double number : numbers) {
+            sum += number;
+        }
+        return sum;
+    }
+
+    @Override
+    public double avg(double[] numbers) {
+        return sum(numbers) / numbers.length;
+    }
+
+    @Override
+    public double percentage(double part, double whole) {
+        return (part / whole) * 100;
+    }
+}
+
+// Example usage
+public class Main {
+    public static void main(String[]args) {
+        BasicStatistics statistics = new BasicStatistics();
+        double[] numbers = {1, 2, 3, 4, 5};
+        System.out.println("Sum: " + statistics.sum(numbers));
+        System.out.println("Average: " + statistics.avg(numbers));
+        System.out.println("Percentage: " + statistics.percentage(3, 5));
+    }
+}
