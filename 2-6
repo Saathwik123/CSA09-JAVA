@@ -1,0 +1,44 @@
+// Interface with 4 methods
+public interface Calculator {
+    double add(double a, double b);
+    double sub(double a, double b);
+    double mul(double a, double b);
+    double div(double a, double b);
+}
+
+// Implementing class with implementation for the 4 methods
+public class BasicCalculator implements Calculator {
+    @Override
+    public double add(double a, double b) {
+        return a + b;
+    }
+
+    @Override
+    public double sub(double a, double b) {
+        return a - b;
+    }
+
+    @Override
+    public double mul(double a, double b) {
+        return a * b;
+    }
+
+    @Override
+    public double div(double a, double b) {
+        if (b == 0) {
+            throw new IllegalArgumentException("Division by zero is not allowed.");
+        }
+        return a / b;
+    }
+}
+
+// Example usage
+public class Main {
+    public static void main(String[] args) {
+        Calculator calculator = new BasicCalculator();
+        System.out.println("Addition: " + calculator.add(2, 3));
+        System.out.println("Subtraction: " + calculator.sub(2, 3));
+        System.out.println("Multiplication: " + calculator.mul(2, 3));
+        System.out.println("Division: " + calculator.div(2, 3));
+    }
+}
