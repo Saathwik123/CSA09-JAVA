@@ -1,0 +1,97 @@
+a) Referencing instance variable
+public class Rectangle {
+    private int width;
+    private int height;
+
+    public Rectangle(int width, int height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    public int getArea() {
+        return width * height;
+    }
+
+    public static void main(String[] args) {
+        Rectangle rect = new Rectangle(5, 10);
+        System.out.println("Area: " + rect.getArea());
+    }
+}
+Output:
+Area: 50
+b)
+public class Rectangle {
+    private int width;
+    private int height;
+
+    public Rectangle(int width, int height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    public Rectangle(int size) {
+        this(size, size);
+    }
+
+    public int getArea() {
+        return width * height;
+    }
+
+    public static void main(String[] args) {
+        Rectangle rect1 = new Rectangle(5, 10);
+        Rectangle rect2 = new Rectangle(7);
+        System.out.println("Area of rect1: " + rect1.getArea());
+        System.out.println("Area of rect2: " + rect2.getArea());
+    }
+}
+Output:
+Area of rect1: 50
+Area of rect2: 49
+c)
+public class Rectangle {
+    private int width;
+    private int height;
+
+    public Rectangle(int width, int height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    public int getArea() {
+        return width * height;
+    }
+
+    public static void printArea(Rectangle rect) {
+        System.out.println("Area: " + rect.getArea());
+    }
+
+    public static void main(String[] args) {
+        Rectangle rect = new Rectangle(5, 10);
+        printArea(rect);
+    }
+}
+Output:
+Area: 50
+d)
+public class Rectangle {
+    private int width;
+    private int height;
+
+    public Rectangle(int width, int height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    public Rectangle setWidth(int width) {
+        this.width = width;
+        return this;
+    }
+
+    public Rectangle setHeight(int height) {
+        this.height = height;
+        return this;
+    }
+
+    public int getArea() {
+        return width * height;
+    }
