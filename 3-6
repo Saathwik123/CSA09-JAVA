@@ -1,0 +1,16 @@
+public class InvalidDecimalException extends Exception {
+    public InvalidDecimalException(String message) {
+        super(message);
+    }
+
+    public static void main(String[] args) {
+        try {
+            String decimal = "12.34.56";
+            if (!decimal.matches("\\d+(\\.\\d+)?")) {
+                throw new InvalidDecimalException("Invalid decimal number format");
+            }
+        } catch (InvalidDecimalException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
